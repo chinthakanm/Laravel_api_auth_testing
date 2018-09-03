@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/add-book', 'book@store');
+Route::get('/get-book/{name}', 'book@show');
