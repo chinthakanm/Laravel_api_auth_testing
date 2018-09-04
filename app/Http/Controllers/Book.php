@@ -35,9 +35,15 @@ class Book extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, array(
+            'name' => 'required|string',
+            'author' => 'required|string',
+            'count' => 'required',
+        ));
+
         $check = DB::table('book')
             ->insert([
-                'NAME' => $request->NAME,
+                'NAME' => $request->name,
                 'AUTHOR' => $request->author,
                 'COUNT' => $request->count,
             ]);
