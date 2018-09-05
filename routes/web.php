@@ -11,10 +11,6 @@
 |
 */
 
-Route::post('/add-book','book@store');
-Route::get('/get-book/{name}','book@show')->middleware('auth:api');
-Route::get('/read-book/{name}','book@show')->middleware('auth:api');
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});

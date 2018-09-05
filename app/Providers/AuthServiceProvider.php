@@ -8,6 +8,7 @@ use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
@@ -28,5 +29,10 @@ class AuthServiceProvider extends ServiceProvider
 
         // Custom
         Passport::routes();
+
+//        Passport::tokensExpireIn(now()->addSeconds(15));
+//
+//        Passport::refreshTokensExpireIn(now()->addSeconds(30));
     }
+
 }
