@@ -21,6 +21,16 @@ Route::group([
     Route::get('/signup/activate/{token}','AuthController@signupActivate');
 
     Route::group([
+//        'namespace' => 'Auth',
+        'middleware' => 'api',
+        'prefix' => 'password'
+    ], function () {
+        Route::post('create', 'PasswordResetController@create');
+        Route::get('find/{token}', 'PasswordResetController@find');
+        Route::post('reset', 'PasswordResetController@reset');
+    });
+
+    Route::group([
         'middleware' => 'auth:api'
     ], function() {
         Route::get('/logout','AuthController@logout');
